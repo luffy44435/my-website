@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container{
+    background-image: url(pexels-jeshoots-4998.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    justify-content: center;
+    display: flex;
+    background-attachment:scroll;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+.text-content {
+    line-height: 1.6;
+    overflow: hidden;
+    height: 200%;
+    text-overflow: ellipsis;
+}
