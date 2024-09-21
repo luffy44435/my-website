@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ac9be442ad.js" crossorigin="anonymous"></script>
+    <title>Luffys Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header--menu">
+            <div class="burger--icons">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="search--box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="menu--icons">
+                <i class="fa-solid fa-chess"></i>
+                <div class="cart-icons">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="cover">
+        <div class="cover--overlay">
+            <h1>Luffy Shop</h1>
+            <span class="slogan">Where You Buy Gaming Assets</span>
+        </div>
+    </section>
+
+    <main>
+        <h2 class="section-heading">Blood Strike Top Up Menu</h2>
+        <div class="menu--list">
+            <div class="menu--item">
+                <img src="/images/stricker_pass.png" alt="">
+                <h5>Stricker Pass</h5>
+                <div class="price">N6,800</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+            <div class="menu--item">
+                <img src="/images/premium.png" alt="">
+                <h5>Stricker Pass Premium</h5>
+                <div class="price">N14,000</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+            <div class="menu--item">
+                <img src="/images/100gold.png" alt="">
+                <h5>100 Golds</h5>
+                <div class="price">N1,500</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+            <div class="menu--item">
+                <img src="/images/300 golds.png" alt="">
+                <h5>300 Golds</h5>
+                <div class="price">N4,500</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+            <div class="menu--item">
+                <img src="/images/500 golds.png" alt="">
+                <h5>500 Golds</h5>
+                <div class="price">N7,500</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+            <div class="menu--item">
+                <img src="/images/1000 golds.png" alt="">
+                <h5>1,000 Golds</h5>
+                <div class="price">N15,000</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+            <div class="menu--item">
+                <img src="/images/2000 golds.png" alt="">
+                <h5>2,000 Golds</h5>
+                <div class="price">N30,000</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+            <div class="menu--item">
+                <img src="/images/5000 golds.png" alt="">
+                <h5>5,000 Golds</h5>
+                <div class="price">N75,000</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+        </div>
+
+        <h2 class="section-heading">Free Fire Top Up Menu</h2>
+        <div class="card--list">
+            <div class="card">
+                <img src="/images/freefire.jpeg" alt="">
+                <h5>100 Diamonds</h5>
+                <div class="price">N1,800</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+
+
+            <div class="card">
+                <img src="/images/freefire.jpeg" alt="">
+                <h5>100 Diamonds</h5>
+                <div class="price">N1,800</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+
+            <div class="card">
+                <img src="/images/freefire.jpeg" alt="">
+                <h5>100 Diamonds</h5>
+                <div class="price">N1,800</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+
+            <div class="card">
+                <img src="/images/freefire.jpeg" alt="">
+                <h5>100 Diamonds</h5>
+                <div class="price">N1,800</div>
+                <i class="fa-solid fa-plus add-to-cart"></i>
+            </div>
+
+            </div>
+
+            
+            <!-- Add more Free Fire items here -->
+        </div>
+
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-close">
+                <i class="fa-solid fa-close"></i>
+            </div>
+            <div class="cart-menu">
+                <h3>My Cart</h3>
+                <div class="card-items">Shopping List</div>
+            </div>
+
+            <div class="sidebar--footer">
+                <div class="total--amount">
+                    <h3>Total</h3>
+                    <div class="cart-total">N0.00</div>
+                </div>
+
+                <div id="payment-section">
+                    <h2>Checkout</h2>
+                    <button class="checkout-btn" id="pay-button">Pay Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loader"></div>
+        
+    </main>
+
+    <script>
+        document.getElementById('pay-button').addEventListener('click', function() {
+            const handler = PaystackPop.setup({
+                key: 'pk_test_48045282bcafdfe6ff62454db370076a58295c1e', // Replace with your Paystack public key
+                email: 'customer@example.com', // Customer's email
+                amount: 680000, // Amount in kobo (N6,800 = 680000 kobo)
+                currency: 'NGN',
+                callback: function(response) {
+                    alert('Payment successful! Transaction ID: ' + response.reference);
+                },
+                onClose: function() {
+                    alert('Transaction was not completed, window closed.');
+                }
+            });
+            handler.openIframe();
+        });
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>
